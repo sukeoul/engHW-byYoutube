@@ -19,4 +19,5 @@ now = time.localtime()
 newname = time.strftime("%Y%m%d", now)
 work.findwords(dir_path+"/srt/"+newname+"_subtitle.txt", dir_path+'/wordlist.txt', 20) # Last parameter is the number of words
 
-wb.initSheet(url)
+# Eng is name of my spreadsheet. you must modify it by yours name.
+wb.initSheet(url, sheet_name='Eng')

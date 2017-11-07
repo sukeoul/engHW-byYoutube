@@ -19,7 +19,7 @@ class sheetManager():
         self.creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', self.scope)
         self.client = gspread.authorize(self.creds)
 
-    def initSheet(self,url):
+    def initSheet(self,url, sheet_name):
         dir_path = os.path.dirname(os.path.realpath(__file__)).replace('\\', '/')
         now = time.localtime()
         title = time.strftime("%Y%m%d", now)
@@ -36,7 +36,7 @@ class sheetManager():
             for w in data.split("\n"):
                 word.append(w)
 
-        spreadsheet = self.client.open("Eng")
+        spreadsheet = self.client.open(sheet_name)
         sheet = spreadsheet.add_worksheet(title, max(len(sub)+5, 50), 10)
 
         #Update sheet frame
@@ -69,9 +69,9 @@ class sheetManager():
         sheet.update_cells(wcell_list)
 
 
-    def manageHomework(self, date):
+    def manageHomework(self, date, sheet_name):
         '''Writed for Checking home work, but not used'''
-        spreadsheet = self.client.open("Eng")
+        spreadsheet = self.client.open(sheet_name)
         sh = spreadsheet.worksheet(date)
 
         wordsList= list(set(sh.col_values(2)))
