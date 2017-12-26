@@ -12,12 +12,12 @@ Script works following the steps below :
 
 These are the pre-req for this script:
 
- * [gspread](https://github.com/burnash/gspread)
- * [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads) - it has to be placed in the same folder with the script
+ * [gspread](https://github.com/burnash/gspread) - **client_secret.json file should be placed in /resource**
+ * [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 
 You can run it by
 ```
-cmd: python giveHW.py
+python giveHW.py
 ```
 
 It will work as the screenshot below<
